@@ -11,25 +11,25 @@
     public sealed class AsyncChainService
     {
         bool disposeInitiated;
-        Task saveInProgress;
+        Task operationInProgress;
 
         /// <summary>
         /// Add an operation to the chain
         /// </summary>
         public void Chain(Func<Task> asyncOperation)
         {
-            if (disposeInitiated)
+            if (this.disposeInitiated)
                 throw new ObjectDisposedException("DisposeAsync was initiated");
 
             if (asyncOperation == null)
                 throw new ArgumentNullException(nameof(asyncOperation));
 
-            this.saveInProgress = AppendCheckpointInternal(asyncOperation);
+            this.operationInProgress = this.AppendCheckpointInternal(asyncOperation);
         }
 
         async Task AppendCheckpointInternal(Func<Task> saveOperation)
         {
-            var newFinalizationTask = saveInProgress ?? Task.FromResult(true);
+            var newFinalizationTask = this.operationInProgress ?? Task.FromResult(true);
             await newFinalizationTask.ConfigureAwait(false);
             await saveOperation().ConfigureAwait(false);
         }
@@ -37,11 +37,11 @@
         /// <summary>
         /// Asynchronously disposes current instance
         /// </summary>
-        public Task DispooseAsync()
+        public Task DisposeAsync()
         {
             this.disposeInitiated = true;
 
-            return saveInProgress ?? Task.FromResult(true);
+            return this.operationInProgress ?? Task.FromResult(true);
         }
     }
 }
