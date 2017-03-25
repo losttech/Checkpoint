@@ -4,6 +4,14 @@
     <TargetFramework>netstandard1.4</TargetFramework>
     <AssemblyName>LostTech.Checkpoint</AssemblyName>
     <RootNamespace>LostTech.Checkpoint</RootNamespace>
+    <VersionPrefix>0.1.0</VersionPrefix>
+    <Authors>Victor Milovanov</Authors>
+    <Company>Lost Tech LLC</Company>
+    <Description>Provides asynchronous checkpoint functionality, such as asynchronous autosave for documents.</Description>
+    <PackageLicenseUrl>https://github.com/losttech/Checkpoint/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/losttech/Checkpoint</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/losttech/Checkpoint.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
 </Project>
