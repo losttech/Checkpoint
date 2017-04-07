@@ -16,7 +16,12 @@
         /// <summary>
         /// Add an operation to the chain
         /// </summary>
-        public void Chain(Func<Task> asyncOperation)
+        public void Chain(Func<Task> asyncOperation) => this.Chain(asyncOperation, true);
+
+        /// <summary>
+        /// Add an operation to the chain
+        /// </summary>
+        public void Chain(Func<Task> asyncOperation, bool captureContext)
         {
             if (this.disposeInitiated)
                 throw new ObjectDisposedException("DisposeAsync was initiated");
@@ -24,13 +29,13 @@
             if (asyncOperation == null)
                 throw new ArgumentNullException(nameof(asyncOperation));
 
-            this.operationInProgress = this.AppendCheckpointInternal(asyncOperation);
+            this.operationInProgress = this.AppendCheckpointInternal(asyncOperation, captureContext);
         }
 
-        async Task AppendCheckpointInternal(Func<Task> saveOperation)
+        async Task AppendCheckpointInternal(Func<Task> saveOperation, bool captureContext)
         {
             var newFinalizationTask = this.operationInProgress ?? Task.FromResult(true);
-            await newFinalizationTask.ConfigureAwait(false);
+            await newFinalizationTask.ConfigureAwait(captureContext);
             await saveOperation().ConfigureAwait(false);
         }
 
