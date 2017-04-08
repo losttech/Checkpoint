@@ -4,7 +4,7 @@
     <TargetFramework>netstandard1.0</TargetFramework>
     <AssemblyName>LostTech.Checkpoint</AssemblyName>
     <RootNamespace>LostTech.Checkpoint</RootNamespace>
-    <VersionPrefix>0.1.0</VersionPrefix>
+    <VersionPrefix>0.2.0</VersionPrefix>
     <Authors>Victor Milovanov</Authors>
     <Company>Lost Tech LLC</Company>
     <Description>Provides asynchronous checkpoint functionality, such as asynchronous autosave for documents.</Description>
