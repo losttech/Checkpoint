@@ -4,8 +4,10 @@
     <TargetFramework>netstandard1.0</TargetFramework>
     <AssemblyName>LostTech.Checkpoint</AssemblyName>
     <RootNamespace>LostTech.Checkpoint</RootNamespace>
-    <Version>0.2.0</Version>
-    <Authors>Victor Milovanov</Authors>
+    <LangVersion>10.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <Version>0.3.0</Version>
+    <Authors>Victor Nova</Authors>
     <Company>Lost Tech LLC</Company>
     <Description>Provides asynchronous checkpoint functionality, such as asynchronous autosave for documents.</Description>
     <PackageLicenseUrl>https://github.com/losttech/Checkpoint/blob/master/LICENSE</PackageLicenseUrl>
