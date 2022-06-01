@@ -10,10 +10,28 @@
     <Authors>Victor Nova</Authors>
     <Company>Lost Tech LLC</Company>
     <Description>Provides asynchronous checkpoint functionality, such as asynchronous autosave for documents.</Description>
-    <PackageLicenseUrl>https://github.com/losttech/Checkpoint/blob/master/LICENSE</PackageLicenseUrl>
+
+    <!-- Package stuff -->
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+
     <PackageProjectUrl>https://github.com/losttech/Checkpoint</PackageProjectUrl>
     <RepositoryUrl>https://github.com/losttech/Checkpoint.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+
+    <!-- The following is recommended for public projects -->
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <DebugSymbols>true</DebugSymbols>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- The following is recommended for public projects -->
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
+  </ItemGroup>
 
 </Project>
